@@ -50,6 +50,22 @@ namespace ButterCheeseEggs.Controllers
         }
 
 
+        private GameState GetFakeGameState()
+        {
+            GameState state = new GameState();
+
+            state.NextStepBy = Players.O;
+            state.Winner = Players.None;
+
+            state.Table[0, 0] = TileStates.X;
+            state.Table[1, 0] = TileStates.O;
+            state.Table[2, 2] = TileStates.X;
+            state.Table[1, 1] = TileStates.O;
+
+            return state;
+        }
+
+
         public GameState GetGameState()
         {
             GameState state;
@@ -57,7 +73,8 @@ namespace ButterCheeseEggs.Controllers
 
             if (stateJson == null)
             {
-                state = new GameState();
+                // ToDo: This is for testing only. Replace this by new GameState();
+                state = GetFakeGameState();
                 HttpContext.Session?.SetString(GameStateSessionId, state.ToJson());
             }
             else
