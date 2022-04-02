@@ -11,6 +11,8 @@ namespace ButterCheeseEggs.Models
 
         public Players Winner { get; set; } = Players.None;
 
+        public bool IsGameFinished { get; set; } = false;
+
         public string ToJson()
         {
             return JsonSerializer.Serialize(this);

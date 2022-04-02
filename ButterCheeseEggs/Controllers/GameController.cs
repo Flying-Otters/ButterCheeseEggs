@@ -42,6 +42,7 @@ namespace ButterCheeseEggs.Controllers
         {
             GameState state = GetGameState();
 
+            gameService.MakeNextMove(state, x, y);
 
             // Run game logic:
             //  - Process the newly made move into the game state
