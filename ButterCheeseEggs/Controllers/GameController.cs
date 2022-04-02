@@ -30,7 +30,7 @@ namespace ButterCheeseEggs.Controllers
 
             SaveGameState(state);
 
-            return View(nameof(Play));
+            return RedirectToAction(nameof(Play));
         }
 
 
@@ -46,7 +46,7 @@ namespace ButterCheeseEggs.Controllers
             SaveGameState(state);
 
 
-            return View(nameof(Play));
+            return RedirectToAction(nameof(Play));
         }
 
 
