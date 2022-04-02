@@ -4,35 +4,79 @@
     ViewData["Title"] = "Play page";
 }
 
-<div class="text-center">
-    <p>
-        Player X or O
-    </p>
-</div>
+<div>
+    <div class=" align-top text-center">
+        <p>
+            Current player: 
+        </p>
+        <p>
+            <b>@Model.NextStepBy</b>
+        </p>
+    </div>
+<br />
+<br />
 
-<div class="align-content-center">
-    <table>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-</table>
-</div>
+    <div class="align-content-center">
+        <table>
+      <tr>
+        <td>
+            <a href="">
+                <img alt="" src="" width="100" height="100">
+            </a>
+        </td>
+        <td>
+            <a href="">
+                <img alt="" src="" width="100" height="100">
+            </a>
+        </td>
+        <td>
+            <a href="">
+                <img alt="" src="" width="100" height="100">
+            </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <a href="">
+                <img alt="" src="" width="100" height="100">
+            </a>
+        </td>
+        <td>
+            <a href="">
+                <img alt="" src="" width="100" height="100">
+            </a>
+        </td>
+        <td>
+            <a href="">
+                <img alt="" src="" width="100" height="100">
+            </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <a href="">
+                <img alt="" src="" width="100" height="100">
+            </a>
+        </td>
+        <td>
+            <a href="">
+                <img alt="" src="" width="100" height="100">
+            </a>
+        </td>
+        <td>
+            <a href="">
+                <img alt="" src="" width="100" height="100">
+            </a>
+        </td>
+      </tr>
+    </table>
+    </div>
 
-
-<div class="container text-center d-flex align-items-center justify-content-">
-    <p>
-        <a class="btn btn-lg btn-outline-dark" asp-controller="Game" asp-action="Reset">Reset</a>
-    </p>
+<br />
+<br />
+    <div class="align-text-bottom text-center">
+        <p>
+            <a class="btn btn-lg btn-outline-dark" asp-controller="Game" asp-action="Reset">Reset</a>
+        </p>
+    </div>
 </div>
