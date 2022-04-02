@@ -1,3 +1,6 @@
+using ButterCheeseEggs.Services.Implementation;
+using ButterCheeseEggs.Services.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +9,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddMvc()
         .AddSessionStateTempDataProvider();
 builder.Services.AddSession();
+
+builder.Services.AddScoped<IGameService, GameService>();
 
 var app = builder.Build();
 

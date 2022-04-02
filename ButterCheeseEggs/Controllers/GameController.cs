@@ -1,4 +1,5 @@
 ﻿using ButterCheeseEggs.Models;
+using ButterCheeseEggs.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,9 +11,12 @@ namespace ButterCheeseEggs.Controllers
 
         private readonly ILogger<GameController> _logger;
 
-        public GameController(ILogger<GameController> logger)
+        private readonly IGameService gameService;
+
+        public GameController(ILogger<GameController> logger, IGameService gameService)
         {
             _logger = logger;
+            this.gameService = gameService;
         }
 
 
