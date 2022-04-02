@@ -44,12 +44,7 @@ namespace ButterCheeseEggs.Controllers
 
             gameService.MakeNextMove(state, x, y);
 
-            // Run game logic:
-            //  - Process the newly made move into the game state
-            //  - Check if there's a winner and process that information in the gamestate object
-
             SaveGameState(state);
-
 
             return RedirectToAction(nameof(Play));
         }
