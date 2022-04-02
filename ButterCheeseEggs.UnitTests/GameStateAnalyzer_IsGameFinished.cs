@@ -79,5 +79,26 @@ namespace ButterCheeseEggs.UnitTests
             Assert.IsTrue(result);
         }
 
+        [TestMethod]
+        public void NoWinnerWithOneEmptyTilesMakeGameNotFinished()
+        {
+            GameStateAnalyzer analyzer = new GameStateAnalyzer();
+            GameState state = new GameState()
+            {
+                Winner = Players.None
+            };
+
+            TileStates tile = TileStates.Empty;
+            for (int i = 0; i < state.Table.LinearData.Count; i++)
+            {
+                state.Table.LinearData[i] = tile;
+                tile = tile == TileStates.O ? TileStates.X : TileStates.O;
+            }
+
+            bool result = analyzer.IsGameFinished(state);
+
+            Assert.IsFalse(result);
+        }
+
     }
 }
