@@ -20,8 +20,7 @@ namespace ButterCheeseEggs.Controllers
         {
             GameState state = GetGameState();
 
-            // ToDo: Pass the game state as the model to the Play view
-            return View();
+            return View(state);
         }
 
 
