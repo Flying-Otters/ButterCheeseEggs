@@ -1,6 +1,6 @@
 ﻿namespace ButterCheeseEggs.Models
 {
-    public class Table<T> : List<T>
+    public class Table<TContent> : List<TContent>
     {
 
         public int XSize { get; set; }
@@ -8,7 +8,7 @@
         public int YSize { get; set; }
 
 
-        public T this[int x, int y]
+        public TContent this[int x, int y]
         {
             get
             {
@@ -37,10 +37,12 @@
 
             for(int i = 0; i < length; i++)
             {
-                T? item = default(T);
+                TContent? item = default(TContent);
+
 #pragma warning disable CS8604 // Possible null reference argument.
                 this.Add(item);
 #pragma warning restore CS8604 // Possible null reference argument.
+
             }
         }
 
@@ -48,7 +50,22 @@
 
         private int GetIndex(int x, int y)
         {
-            return (y * YSize) + x;
+            DoBoundaryCheck(x, y);
+            int linearIndex = (y * YSize) + x;
+            return linearIndex;
+        }
+
+        private void DoBoundaryCheck(int x, int y)
+        {
+            if(x >= XSize)
+            {
+                throw new IndexOutOfRangeException("X cannot be greater than XSize");
+            }
+
+            if (y >= YSize)
+            {
+                throw new IndexOutOfRangeException("Y cannot be greater than YSize");
+            }
         }
 
     }
