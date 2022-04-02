@@ -18,57 +18,19 @@
 
     <div class="align-content-center">
         <table>
-      <tr>
-        <td>
-            <a href="">
-                <img alt="" src="" width="100" height="100">
-            </a>
-        </td>
-        <td>
-            <a href="">
-                <img alt="" src="" width="100" height="100">
-            </a>
-        </td>
-        <td>
-            <a href="">
-                <img alt="" src="" width="100" height="100">
-            </a>
-        </td>
-      </tr>
-      <tr>
-        <td>
-            <a href="">
-                <img alt="" src="" width="100" height="100">
-            </a>
-        </td>
-        <td>
-            <a href="">
-                <img alt="" src="" width="100" height="100">
-            </a>
-        </td>
-        <td>
-            <a href="">
-                <img alt="" src="" width="100" height="100">
-            </a>
-        </td>
-      </tr>
-      <tr>
-        <td>
-            <a href="">
-                <img alt="" src="" width="100" height="100">
-            </a>
-        </td>
-        <td>
-            <a href="">
-                <img alt="" src="" width="100" height="100">
-            </a>
-        </td>
-        <td>
-            <a href="">
-                <img alt="" src="" width="100" height="100">
-            </a>
-        </td>
-      </tr>
+            @for(int y=0; y < Model.Table.YSize; y++)
+            {
+                <tr>
+                    @for(int x = 0; x < Model.Table.XSize; x++)
+                    {
+                        <td>
+                            <a href="">
+                                <img src="@SelectImage(x, y)" width="100" height="100">
+                            </a>
+                        </td>
+                    }
+                </tr>
+            }
     </table>
     </div>
 
@@ -80,3 +42,29 @@
         </p>
     </div>
 </div>
+
+
+
+@{
+    string SelectImage(int x, int y)
+    {
+        TileStates state= Model.Table[x, y];
+
+        switch (state)
+        {
+            case TileStates.Empty:
+                return "/img/tile_empty.svg";
+            case TileStates.O:
+                return "/img/tile_o.svg";
+            case TileStates.X:
+                return "/img/tile_x.svg";
+            default:
+                throw new NotSupportedException("Tile state not supported: " + state);
+        }
+
+
+    }
+
+
+
+}
