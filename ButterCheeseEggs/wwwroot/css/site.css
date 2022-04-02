@@ -48,3 +48,7 @@ table tr td:last-child {
 table td:hover {
     background: #d5eff2;
 }
+
+table td.nohover {
+    background: none;
+}
