@@ -22,9 +22,9 @@ namespace ButterCheeseEggs.UnitTests
                 Winner = Players.X
             };
 
-            analyzer.IsGameFinished(state);
+            bool result = analyzer.IsGameFinished(state);
 
-            Assert.IsTrue(state.IsGameFinished);
+            Assert.IsTrue(result);
         }
 
 
@@ -37,10 +37,11 @@ namespace ButterCheeseEggs.UnitTests
                 Winner = Players.O
             };
 
-            analyzer.IsGameFinished(state);
+            bool result = analyzer.IsGameFinished(state);
 
-            Assert.IsTrue(state.IsGameFinished);
+            Assert.IsTrue(result);
         }
+
 
         [TestMethod]
         public void NoWinnerWithEmptyTilesMakeGameNotFinished()
@@ -51,11 +52,33 @@ namespace ButterCheeseEggs.UnitTests
                 Winner = Players.None
             };
 
-            analyzer.IsGameFinished(state);
+            bool result = analyzer.IsGameFinished(state);
 
-            Assert.IsFalse(state.IsGameFinished);
+            Assert.IsFalse(result);
         }
 
+
+
+        [TestMethod]
+        public void NoWinnerWithNoEmptyTilesMakeGameFinishedDraw()
+        {
+            GameStateAnalyzer analyzer = new GameStateAnalyzer();
+            GameState state = new GameState()
+            {
+                Winner = Players.None
+            };
+
+            TileStates tile = TileStates.X;
+            for (int i = 0; i < state.Table.LinearData.Count; i++)
+            {
+                state.Table.LinearData[i] = tile;
+                tile = tile == TileStates.O ? TileStates.X : TileStates.O;
+            }
+
+            analyzer.IsGameFinished(state);
+
+            Assert.IsTrue(state.IsGameFinished);
+        }
 
     }
 }
