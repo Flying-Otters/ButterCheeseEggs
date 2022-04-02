@@ -7,37 +7,46 @@
 <div>
     <div class=" align-top text-center">
         <p>
-            Current player: 
+            Current player:
         </p>
         <p>
-            <a href="">
-                <img src="@SelectImageForNextPlayer()" width="30" height="30">
-            </a>
+            <img src="@SelectImageForNextPlayer()" width="30" height="30">
         </p>
     </div>
-<br />
-<br />
+    <br />
+    <br />
 
     <div class="align-content-center">
         <table>
-            @for(int y=0; y < Model.Table.YSize; y++)
-            {
-                <tr>
-                    @for(int x = 0; x < Model.Table.XSize; x++)
-                    {
-                        <td>
-                            <a href="@GetMakeMoveLink(x, y)">
-                                <img src="@SelectImageForTile(x, y)" width="100" height="100">
-                            </a>
-                        </td>
-                    }
-                </tr>
-            }
-    </table>
+            <tbody>
+                @for (int y = 0; y < Model.Table.YSize; y++)
+                {
+                    <tr>
+                        @for (int x = 0; x < Model.Table.XSize; x++)
+                        {
+                            @if (IsEmptyTile(x, y))
+                            {
+                                <td>
+                                    <a href="@GetMakeMoveLink(x, y)">
+                                        <img src="@SelectImageForTile(x, y)" width="100" height="100">
+                                    </a>
+                                </td>
+                            }
+                            else
+                            {
+                                <td class="nohover">
+                                    <img src="@SelectImageForTile(x, y)" width="100" height="100">
+                                </td>
+                            }
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
 
-<br />
-<br />
+    <br />
+    <br />
     <div class="align-text-bottom text-center">
         <p>
             <a class="btn btn-lg btn-outline-dark" asp-controller="Game" asp-action="Reset">Reset</a>
@@ -50,7 +59,7 @@
 @{
     string SelectImageForTile(int x, int y)
     {
-        TileStates state= Model.Table[x, y];
+        TileStates state = Model.Table[x, y];
 
         switch (state)
         {
@@ -89,5 +98,18 @@
     }
 
 
+    bool IsEmptyTile(int x, int y)
+    {
+        TileStates state = Model.Table[x, y];
+
+        if (state == TileStates.Empty)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
 }
