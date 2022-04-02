@@ -8,6 +8,7 @@ html {
   }
 }
 
+
 html {
   position: relative;
   min-height: 100%;
@@ -15,4 +16,48 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+
+/*.tic-box {
+    border: solid black 1px;
+    outline-color:none;
+    font-size: 5vw;
+    text-align: center;
+    width: 85px;
+    height: 85px;
+}
+
+.tic-box:hover {
+    background: #d5eff2;
+}*/
+
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+table td {
+    padding: 1rem;
+    border: 5px solid black;
+}
+
+table tr:first-child td {
+    border-top: 0;
+}
+
+table tr td:first-child {
+    border-left: 0;
+}
+
+table tr:last-child td {
+    border-bottom: 0;
+}
+
+table tr td:last-child {
+    border-right: 0;
+}
+
+table td:hover {
+    background: #d5eff2;
 }
