@@ -51,7 +51,7 @@
         private int GetIndex(int x, int y)
         {
             DoBoundaryCheck(x, y);
-            int linearIndex = (y * YSize) + x;
+            int linearIndex = (y * XSize) + x;
             return linearIndex;
         }
 
