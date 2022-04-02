@@ -49,6 +49,6 @@ table td:hover {
     background: #d5eff2;
 }
 
-nohover{
-    background-color:none;
+table td.nohover {
+    background: none;
 }
