@@ -7,11 +7,10 @@ namespace ButterCheeseEggs.Services.Implementation
 
         public Players DetermineWinner(GameState state)
         {
+            Players winner = Players.None;
 
 
-
-
-            return Players.None;
+            return winner;
         }
 
 
