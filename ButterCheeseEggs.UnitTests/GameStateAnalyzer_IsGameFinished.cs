@@ -58,7 +58,6 @@ namespace ButterCheeseEggs.UnitTests
         }
 
 
-
         [TestMethod]
         public void NoWinnerWithNoEmptyTilesMakeGameFinishedDraw()
         {
@@ -75,9 +74,9 @@ namespace ButterCheeseEggs.UnitTests
                 tile = tile == TileStates.O ? TileStates.X : TileStates.O;
             }
 
-            analyzer.IsGameFinished(state);
+            bool result = analyzer.IsGameFinished(state);
 
-            Assert.IsTrue(state.IsGameFinished);
+            Assert.IsTrue(result);
         }
 
     }
