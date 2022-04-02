@@ -34,7 +34,6 @@ namespace ButterCheeseEggs.Controllers
         }
 
 
-
         public IActionResult MakeMove(int x, int y)
         {
             GameState state = GetGameState();
