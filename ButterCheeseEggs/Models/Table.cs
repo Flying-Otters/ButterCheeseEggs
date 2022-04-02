@@ -1,24 +1,27 @@
-﻿namespace ButterCheeseEggs.Models
-{
-    public class Table<TContent> : List<TContent>
-    {
+﻿using System.Runtime.Serialization;
 
+namespace ButterCheeseEggs.Models
+{
+
+    public class Table<TContent>
+    {
         public int XSize { get; set; }
 
         public int YSize { get; set; }
 
+        public List<TContent> LinearData { get; set; } = new List<TContent>();
 
         public TContent this[int x, int y]
         {
             get
             {
                 int linearIndex = GetIndex(x, y);
-                return this[linearIndex];
+                return LinearData[linearIndex];
             }
             set
             {
                 int linearIndex = GetIndex(x, y);
-                this[linearIndex] = value;
+                LinearData[linearIndex] = value;
             }
         }
 
@@ -40,7 +43,7 @@
                 TContent? item = default(TContent);
 
 #pragma warning disable CS8604 // Possible null reference argument.
-                this.Add(item);
+                LinearData.Add(item);
 #pragma warning restore CS8604 // Possible null reference argument.
 
             }
