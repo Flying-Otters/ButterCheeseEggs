@@ -17,12 +17,30 @@ namespace ButterCheeseEggs.Services.Implementation
 
         public bool IsGameFinished(GameState state)
         {
-            
-            // -> If there's a winner in the state, then the game is finished.
-            // -> Otherwise, if there's no empty tiles, then the game is finished
-            // Otherwise, the game is not finished
-            
-            return false;
+            if (state.Winner != Players.None)
+            {
+                return true;
+            }
+
+            return !HasEmptyTiles(state);
+        }
+
+
+        private bool HasEmptyTiles(GameState state)
+        {
+            int count = 0;
+
+            foreach (TileStates tile in state.Table.LinearData)
+            {
+                if (tile == TileStates.Empty)
+                {
+                    count++;
+                }
+            }
+
+            bool hasEmptyTiles = (count != 0);
+
+            return hasEmptyTiles;
         }
     }
 }
