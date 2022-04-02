@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+ <title>Tile_X</title>
+
+ <g>
+  <line stroke-width="10%" stroke-linecap="round" id="svg_2" y2="80%" x2="80%" y1="20%" x1="20%" stroke="#000" fill="none"/>
+  <line stroke-width="10%" stroke-linecap="round" id="svg_2" y2="20%" x2="80%" y1="80%" x1="20%" stroke="#000" fill="none"/>
+ </g>
+</svg>
+
+
