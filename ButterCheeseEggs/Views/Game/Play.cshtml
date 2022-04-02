@@ -26,7 +26,7 @@
                     @for(int x = 0; x < Model.Table.XSize; x++)
                     {
                         <td>
-                            <a href="">
+                            <a href="@GetMakeMoveLink(x, y)">
                                 <img src="@SelectImageForTile(x, y)" width="100" height="100">
                             </a>
                         </td>
@@ -80,6 +80,12 @@
             default:
                 throw new NotSupportedException("Tile state not supported: " + player);
         }
+    }
+
+
+    string GetMakeMoveLink(int x, int y)
+    {
+        return $"MakeMove/{x}/{y}";
     }
 
 
