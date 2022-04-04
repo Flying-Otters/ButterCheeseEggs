@@ -6,20 +6,33 @@
 
 <div>
     <div class=" align-top text-center">
-        <p>
-            Current player:
-        </p>
-        <p>
-            <img src="@SelectImageForNextPlayer()" width="30" height="30">
-        </p>
-    </div>
-    <br />
-    <br />
+        @if (!Model.IsGameFinished)
+        {
+            <p>
+                Current player:
+            </p>
+            <p>
+                <img src="@SelectImageForNextPlayer()" width="30" height="30">
+            </p>
+        }
+        else
+        {
+            <p>
+                <b>Winner is:</b>
+            </p>
+            <p>
+                <img src="@SelectImageForWinner()" width="30" height="30">
+            </p>
+            }
 
-    <div class="align-content-center">
-        <table>
-            <tbody>
-                @for (int y = 0; y < Model.Table.YSize; y++)
+        </div>
+        <br />
+        <br />
+
+        <div class="align-content-center">
+            <table>
+                <tbody>
+                    @for (int y = 0; y < Model.Table.YSize; y++)
                 {
                     <tr>
                         @for (int x = 0; x < Model.Table.XSize; x++)
@@ -88,6 +101,24 @@
                 return "/img/tile_x.svg";
             default:
                 throw new NotSupportedException("Tile state not supported: " + player);
+        }
+    }
+
+
+    string SelectImageForWinner()
+    {
+        Players winner = Model.Winner;
+
+        switch (winner)
+        {
+            case Players.None:
+                return "It's a tie!";
+            case Players.O:
+                return "/img/tile_o.svg";
+            case Players.X:
+                return "/img/tile_x.svg";
+            default:
+                throw new NotSupportedException("Winner state not supported: " + winner);
         }
     }
 
