@@ -29,34 +29,66 @@
         <br />
         <br />
 
-        <div class="align-content-center">
-            <table>
-                <tbody>
-                    @for (int y = 0; y < Model.Table.YSize; y++)
-                {
-                    <tr>
-                        @for (int x = 0; x < Model.Table.XSize; x++)
+        @if (!Model.IsGameFinished)
+        {
+            <div class="align-content-center">
+                <table>
+                    <tbody>
+                     @for (int y = 0; y < Model.Table.YSize; y++)
                         {
-                            @if (IsEmptyTile(x, y))
+                        <tr>
+                            @for (int x = 0; x < Model.Table.XSize; x++)
                             {
-                                <td>
-                                    <a href="@GetMakeMoveLink(x, y)">
+                                @if (IsEmptyTile(x, y))
+                                {
+                                    <td>
+                                        <a href="@GetMakeMoveLink(x, y)">
+                                            <img src="@SelectImageForTile(x, y)" width="100" height="100">
+                                        </a>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td class="nohover">
                                         <img src="@SelectImageForTile(x, y)" width="100" height="100">
-                                    </a>
-                                </td>
+                                    </td>
+                                }
                             }
-                            else
+                        </tr>
+                         }
+                    </tbody>
+                 </table>
+        </div>
+    }
+    else
+    {
+        <div class="align-content-center">
+                <table>
+                    <tbody>
+                     @for (int y = 0; y < Model.Table.YSize; y++)
+                        {
+                        <tr>
+                            @for (int x = 0; x < Model.Table.XSize; x++)
                             {
-                                <td class="nohover">
-                                    <img src="@SelectImageForTile(x, y)" width="100" height="100">
-                                </td>
+                                @if (IsEmptyTile(x, y))
+                                {
+                                    <td class="nohover">
+                                        <img src="/img/tile_empty.svg" width="100" height="100">
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td class="nohover">
+                                        <img src="@SelectImageForTile(x, y)" width="100" height="100">
+                                    </td>
+                                }
                             }
-                        }
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
+                        </tr>
+                         }
+                    </tbody>
+                 </table>
+        </div>
+    }
 
     <br />
     <br />
