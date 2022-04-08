@@ -8,25 +8,23 @@ namespace ButterCheeseEggs.Services.Implementation
         public Players DetermineWinner(GameState state)
         {
             Players winner = Players.None;
+            bool XIsInWinningCondition = IsRowInWinningConditionForX(state) || IsColumnInWinningConditionForX(state) || IsDiagonalInWinningConditionForX(state);
+            bool OIsInWinningCondition = IsRowInWinningConditionForO(state) || IsColumnInWinningConditionForO(state) || IsDiagonalInWinningConditionForO(state);
 
-            if (HasEmptyTiles(state))
+            if (HasEmptyTiles(state) || IsGameATie(state))
             {
                 winner = Players.None;
             }
 
-            if (IsRowInWinningConditionForX(state) || IsColumnInWinningConditionForX(state))
+            if (XIsInWinningCondition)
             {
                 winner = Players.X;
             }
-            if (IsRowInWinningConditionForO(state) || IsColumnInWinningConditionForO(state))
+            if (OIsInWinningCondition)
             {
                 winner = Players.O;
             }
-            if (IsGameATie(state))
-            {
-                winner = Players.None;
-            }
-
+            
             return winner;
         }
 
@@ -85,6 +83,34 @@ namespace ButterCheeseEggs.Services.Implementation
             bool isThirdColumnO = (state.Table[2, 0] == TileStates.O) && (state.Table[2, 1] == TileStates.O) && (state.Table[2, 2] == TileStates.O);
 
             if (isFirstColumnO || isSecondColumnO || isThirdColumnO)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+
+        private bool IsDiagonalInWinningConditionForX(GameState state)
+        {
+            bool isFirstDiagonalX = (state.Table[0, 0] == TileStates.X) && (state.Table[1, 1] == TileStates.X) && (state.Table[2, 2] == TileStates.X);
+            bool isSecondDiagonalX = (state.Table[2, 0] == TileStates.X) && (state.Table[1, 1] == TileStates.X) && (state.Table[0, 2] == TileStates.X);
+
+            if (isFirstDiagonalX || isSecondDiagonalX)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+
+        private bool IsDiagonalInWinningConditionForO(GameState state)
+        {
+            bool isFirstDiagonalO = (state.Table[0, 0] == TileStates.O) && (state.Table[1, 1] == TileStates.O) && (state.Table[2, 2] == TileStates.O);
+            bool isSecondDiagonalO = (state.Table[2, 0] == TileStates.O) && (state.Table[1, 1] == TileStates.O) && (state.Table[0, 2] == TileStates.O);
+      
+            if (isFirstDiagonalO || isSecondDiagonalO)
             {
                 return true;
             }

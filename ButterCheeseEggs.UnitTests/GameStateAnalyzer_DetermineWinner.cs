@@ -112,14 +112,15 @@ namespace ButterCheeseEggs.UnitTests
             GameStateAnalyzer analyzer = new GameStateAnalyzer();
             GameState state = new GameState();
 
-            state.Table[0, 0] = TileStates.O;
-            state.Table[2, 0] = TileStates.X;
+            state.Table[0, 1] = TileStates.X;
+            state.Table[1, 1] = TileStates.O;
             state.Table[2, 1] = TileStates.O;
-            state.Table[2, 2] = TileStates.X;
-            state.Table[0, 1] = TileStates.O;
+            state.Table[0, 2] = TileStates.X;
             state.Table[1, 2] = TileStates.O;
+            state.Table[2, 2] = TileStates.X;
+            state.Table[0, 0] = TileStates.O;
             state.Table[1, 0] = TileStates.X;
-            state.Table[1, 1] = TileStates.X;
+            state.Table[2, 0] = TileStates.X;
 
             Players result = analyzer.DetermineWinner(state);
 
@@ -154,13 +155,15 @@ namespace ButterCheeseEggs.UnitTests
             GameState state = new GameState();
 
             state.Table[0, 0] = TileStates.O;
-            state.Table[2, 0] = TileStates.X;
-            state.Table[2, 1] = TileStates.O;
-            state.Table[2, 2] = TileStates.X;
-            state.Table[0, 1] = TileStates.X;
-            state.Table[1, 2] = TileStates.O;
             state.Table[1, 0] = TileStates.X;
+            state.Table[2, 0] = TileStates.X;
+            state.Table[0, 1] = TileStates.X;
             state.Table[1, 1] = TileStates.O;
+            state.Table[2, 1] = TileStates.O;
+            state.Table[0, 2] = TileStates.X;
+            state.Table[1, 2] = TileStates.O;
+            state.Table[2, 2] = TileStates.X;
+
 
             Players result = analyzer.DetermineWinner(state);
 
@@ -175,13 +178,14 @@ namespace ButterCheeseEggs.UnitTests
             GameState state = new GameState();
 
             state.Table[0, 0] = TileStates.O;
-            state.Table[2, 0] = TileStates.X;
-            state.Table[2, 1] = TileStates.O;
-            state.Table[2, 2] = TileStates.X;
-            state.Table[0, 1] = TileStates.X;
-            state.Table[1, 2] = TileStates.O;
             state.Table[1, 0] = TileStates.X;
+            state.Table[2, 0] = TileStates.X;
+            state.Table[0, 1] = TileStates.X;
             state.Table[1, 1] = TileStates.O;
+            state.Table[2, 1] = TileStates.O;
+            state.Table[0, 2] = TileStates.X;
+            state.Table[1, 2] = TileStates.O;
+            state.Table[2, 2] = TileStates.X;
 
             Players result = analyzer.DetermineWinner(state);
 
@@ -203,6 +207,183 @@ namespace ButterCheeseEggs.UnitTests
             state.Table[1, 2] = TileStates.O;
             state.Table[2, 0] = TileStates.X;
             state.Table[2, 1] = TileStates.O;
+            state.Table[2, 2] = TileStates.X;
+
+            Players result = analyzer.DetermineWinner(state);
+
+            Assert.IsTrue(result == Players.None);
+        }
+
+
+        [TestMethod]
+        public void WinnerIsOIfFirstDiagonalIsInAWinningPositionForO()
+        {
+            GameStateAnalyzer analyzer = new GameStateAnalyzer();
+            GameState state = new GameState();
+
+            state.Table[0, 0] = TileStates.O;
+            state.Table[1, 0] = TileStates.X;
+            state.Table[2, 0] = TileStates.X;
+            state.Table[0, 1] = TileStates.X;
+            state.Table[1, 1] = TileStates.O;
+            state.Table[2, 1] = TileStates.O;
+            state.Table[0, 2] = TileStates.X;
+            state.Table[1, 2] = TileStates.O;
+            state.Table[2, 2] = TileStates.O;
+
+            Players result = analyzer.DetermineWinner(state);
+
+            Assert.AreEqual(Players.O, result);
+        }
+
+
+        [TestMethod]
+        public void WinnerIsOIfSecondDiagonalIsInAWinningPositionForO()
+        {
+            GameStateAnalyzer analyzer = new GameStateAnalyzer();
+            GameState state = new GameState();
+
+            state.Table[0, 0] = TileStates.X;
+            state.Table[1, 0] = TileStates.X;
+            state.Table[2, 0] = TileStates.O;
+            state.Table[0, 1] = TileStates.X;
+            state.Table[1, 1] = TileStates.O;
+            state.Table[2, 1] = TileStates.X;
+            state.Table[0, 2] = TileStates.O;
+            state.Table[1, 2] = TileStates.O;
+            state.Table[2, 2] = TileStates.O;
+
+            Players result = analyzer.DetermineWinner(state);
+
+            Assert.AreEqual(Players.O, result);
+        }
+
+
+        [TestMethod]
+        public void WinnerIsXIfFirstDiagonalIsInAWinningPositionForX()
+        {
+            GameStateAnalyzer analyzer = new GameStateAnalyzer();
+            GameState state = new GameState();
+
+            state.Table[0, 0] = TileStates.X;
+            state.Table[1, 0] = TileStates.X;
+            state.Table[2, 0] = TileStates.O;
+            state.Table[0, 1] = TileStates.X;
+            state.Table[1, 1] = TileStates.X;
+            state.Table[2, 1] = TileStates.O;
+            state.Table[0, 2] = TileStates.O;
+            state.Table[1, 2] = TileStates.O;
+            state.Table[2, 2] = TileStates.X;
+
+            Players result = analyzer.DetermineWinner(state);
+
+            Assert.AreEqual(Players.X, result);
+        }
+
+
+
+        [TestMethod]
+        public void WinnerIsXIfSecondDiagonalIsInAWinningPositionForX()
+        {
+            GameStateAnalyzer analyzer = new GameStateAnalyzer();
+            GameState state = new GameState();
+
+            state.Table[0, 0] = TileStates.O;
+            state.Table[1, 0] = TileStates.X;
+            state.Table[2, 0] = TileStates.X;
+            state.Table[0, 1] = TileStates.X;
+            state.Table[1, 1] = TileStates.X;
+            state.Table[2, 1] = TileStates.O;
+            state.Table[0, 2] = TileStates.X;
+            state.Table[1, 2] = TileStates.O;
+            state.Table[2, 2] = TileStates.X;
+
+            Players result = analyzer.DetermineWinner(state);
+
+            Assert.AreEqual(Players.X, result);
+        }
+
+
+        [TestMethod]
+        public void WinnerIsNotXIfOnlyTwoTilesInFirstDiagonalAreX()
+        {
+            GameStateAnalyzer analyzer = new GameStateAnalyzer();
+            GameState state = new GameState();
+
+            state.Table[0, 0] = TileStates.X;
+            state.Table[1, 0] = TileStates.X;
+            state.Table[2, 0] = TileStates.O;
+            state.Table[0, 1] = TileStates.O;
+            state.Table[1, 1] = TileStates.X;
+            state.Table[2, 1] = TileStates.X;
+            state.Table[0, 2] = TileStates.X;
+            state.Table[1, 2] = TileStates.O;
+            state.Table[2, 2] = TileStates.O;
+
+            Players result = analyzer.DetermineWinner(state);
+
+            Assert.IsTrue(result == Players.None);
+        }
+
+
+        [TestMethod]
+        public void WinnerIsNotXIfOnlyTwoTilesInSecondDiagonalAreX()
+        {
+            GameStateAnalyzer analyzer = new GameStateAnalyzer();
+            GameState state = new GameState();
+
+            state.Table[0, 0] = TileStates.X;
+            state.Table[1, 0] = TileStates.X;
+            state.Table[2, 0] = TileStates.O;
+            state.Table[0, 1] = TileStates.O;
+            state.Table[1, 1] = TileStates.X;
+            state.Table[2, 1] = TileStates.X;
+            state.Table[0, 2] = TileStates.X;
+            state.Table[1, 2] = TileStates.O;
+            state.Table[2, 2] = TileStates.O;
+
+            Players result = analyzer.DetermineWinner(state);
+
+            Assert.IsTrue(result == Players.None);
+        }
+
+
+        [TestMethod]
+        public void WinnerIsNotOIfOnlyTwoTilesInFirstDiagonalAreO()
+        {
+            GameStateAnalyzer analyzer = new GameStateAnalyzer();
+            GameState state = new GameState();
+
+            state.Table[0, 0] = TileStates.O;
+            state.Table[1, 0] = TileStates.X;
+            state.Table[2, 0] = TileStates.O;
+            state.Table[0, 1] = TileStates.X;
+            state.Table[1, 1] = TileStates.O;
+            state.Table[2, 1] = TileStates.O;
+            state.Table[0, 2] = TileStates.X;
+            state.Table[1, 2] = TileStates.O;
+            state.Table[2, 2] = TileStates.X;
+
+            Players result = analyzer.DetermineWinner(state);
+
+            Assert.IsTrue(result == Players.None);
+        }
+
+
+        [TestMethod]
+        public void WinnerIsNotOIfOnlyTwoTilesInSecondDiagonalAreO()
+        {
+            GameStateAnalyzer analyzer = new GameStateAnalyzer();
+            GameState state = new GameState();
+
+            state.Table[0, 0] = TileStates.O;
+            state.Table[1, 0] = TileStates.X;
+            state.Table[2, 0] = TileStates.O;
+            state.Table[0, 1] = TileStates.X;
+            state.Table[1, 1] = TileStates.O;
+            state.Table[2, 1] = TileStates.O;
+            state.Table[0, 2] = TileStates.X;
+            state.Table[1, 2] = TileStates.O;
             state.Table[2, 2] = TileStates.X;
 
             Players result = analyzer.DetermineWinner(state);
