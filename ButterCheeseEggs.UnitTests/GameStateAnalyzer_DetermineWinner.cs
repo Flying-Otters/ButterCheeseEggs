@@ -30,13 +30,13 @@ namespace ButterCheeseEggs.UnitTests
             GameStateAnalyzer analyzer = new GameStateAnalyzer();
             GameState state = new GameState();
 
-            state.Table[0,0] = TileStates.X;
-            state.Table[1,0] = TileStates.X;
-            state.Table[2,0] = TileStates.X;
-            state.Table[2, 1] = TileStates.O;
-            state.Table[2, 2] = TileStates.O;
-            state.Table[0, 1] = TileStates.O;
-            state.Table[1, 2] = TileStates.O;
+            state.Table[0,0].TileState = TileStates.X;
+            state.Table[1,0].TileState = TileStates.X;
+            state.Table[2,0].TileState = TileStates.X;
+            state.Table[2, 1].TileState = TileStates.O;
+            state.Table[2, 2].TileState = TileStates.O;
+            state.Table[0, 1].TileState = TileStates.O;
+            state.Table[1, 2].TileState = TileStates.O;
 
             Players result = analyzer.DetermineWinner(state);
 
@@ -50,13 +50,13 @@ namespace ButterCheeseEggs.UnitTests
             GameStateAnalyzer analyzer = new GameStateAnalyzer();
             GameState state = new GameState();
 
-            state.Table[0, 0] = TileStates.O;
-            state.Table[1, 0] = TileStates.O;
-            state.Table[2, 0] = TileStates.O;
-            state.Table[2, 1] = TileStates.X;
-            state.Table[2, 2] = TileStates.X;
-            state.Table[0, 1] = TileStates.O;
-            state.Table[1, 2] = TileStates.X;
+            state.Table[0, 0].TileState = TileStates.O;
+            state.Table[1, 0].TileState = TileStates.O;
+            state.Table[2, 0].TileState = TileStates.O;
+            state.Table[2, 1].TileState = TileStates.X;
+            state.Table[2, 2].TileState = TileStates.X;
+            state.Table[0, 1].TileState = TileStates.O;
+            state.Table[1, 2].TileState = TileStates.X;
 
             Players result = analyzer.DetermineWinner(state);
 
@@ -70,13 +70,13 @@ namespace ButterCheeseEggs.UnitTests
             GameStateAnalyzer analyzer = new GameStateAnalyzer();
             GameState state = new GameState();
 
-            state.Table[0, 0] = TileStates.O;
-            state.Table[1, 0] = TileStates.O;
-            state.Table[2, 0] = TileStates.X;
-            state.Table[2, 1] = TileStates.X;
-            state.Table[2, 2] = TileStates.X;
-            state.Table[0, 1] = TileStates.O;
-            state.Table[1, 2] = TileStates.X;
+            state.Table[0, 0].TileState = TileStates.O;
+            state.Table[1, 0].TileState = TileStates.O;
+            state.Table[2, 0].TileState = TileStates.X;
+            state.Table[2, 1].TileState = TileStates.X;
+            state.Table[2, 2].TileState = TileStates.X;
+            state.Table[0, 1].TileState = TileStates.O;
+            state.Table[1, 2].TileState = TileStates.X;
 
             Players result = analyzer.DetermineWinner(state);
 
@@ -90,14 +90,14 @@ namespace ButterCheeseEggs.UnitTests
             GameStateAnalyzer analyzer = new GameStateAnalyzer();
             GameState state = new GameState();
 
-            state.Table[0, 0] = TileStates.O;
-            state.Table[2, 0] = TileStates.X;
-            state.Table[2, 1] = TileStates.X;
-            state.Table[2, 2] = TileStates.X;
-            state.Table[0, 1] = TileStates.O;
-            state.Table[1, 2] = TileStates.O;
-            state.Table[1, 0] = TileStates.O;
-            state.Table[1, 1] = TileStates.O;
+            state.Table[0, 0].TileState = TileStates.O;
+            state.Table[2, 0].TileState = TileStates.X;
+            state.Table[2, 1].TileState = TileStates.X;
+            state.Table[2, 2].TileState = TileStates.X;
+            state.Table[0, 1].TileState = TileStates.O;
+            state.Table[1, 2].TileState = TileStates.O;
+            state.Table[1, 0].TileState = TileStates.O;
+            state.Table[1, 1].TileState = TileStates.O;
 
             Players result = analyzer.DetermineWinner(state);
 
@@ -112,15 +112,15 @@ namespace ButterCheeseEggs.UnitTests
             GameStateAnalyzer analyzer = new GameStateAnalyzer();
             GameState state = new GameState();
 
-            state.Table[0, 1] = TileStates.X;
-            state.Table[1, 1] = TileStates.O;
-            state.Table[2, 1] = TileStates.O;
-            state.Table[0, 2] = TileStates.X;
-            state.Table[1, 2] = TileStates.O;
-            state.Table[2, 2] = TileStates.X;
-            state.Table[0, 0] = TileStates.O;
-            state.Table[1, 0] = TileStates.X;
-            state.Table[2, 0] = TileStates.X;
+            state.Table[0, 1].TileState = TileStates.X;
+            state.Table[1, 1].TileState = TileStates.O;
+            state.Table[2, 1].TileState = TileStates.O;
+            state.Table[0, 2].TileState = TileStates.X;
+            state.Table[1, 2].TileState = TileStates.O;
+            state.Table[2, 2].TileState = TileStates.X;
+            state.Table[0, 0].TileState = TileStates.O;
+            state.Table[1, 0].TileState = TileStates.X;
+            state.Table[2, 0].TileState = TileStates.X;
 
             Players result = analyzer.DetermineWinner(state);
 
@@ -134,14 +134,14 @@ namespace ButterCheeseEggs.UnitTests
             GameStateAnalyzer analyzer = new GameStateAnalyzer();
             GameState state = new GameState();
 
-            state.Table[0, 0] = TileStates.O;
-            state.Table[2, 0] = TileStates.X;
-            state.Table[2, 1] = TileStates.O;
-            state.Table[2, 2] = TileStates.X;
-            state.Table[0, 1] = TileStates.X;
-            state.Table[1, 2] = TileStates.O;
-            state.Table[1, 0] = TileStates.X;
-            state.Table[1, 1] = TileStates.X;
+            state.Table[0, 0].TileState = TileStates.O;
+            state.Table[2, 0].TileState = TileStates.X;
+            state.Table[2, 1].TileState = TileStates.O;
+            state.Table[2, 2].TileState = TileStates.X;
+            state.Table[0, 1].TileState = TileStates.X;
+            state.Table[1, 2].TileState = TileStates.O;
+            state.Table[1, 0].TileState = TileStates.X;
+            state.Table[1, 1].TileState = TileStates.X;
 
             Players result = analyzer.DetermineWinner(state);
 
@@ -154,15 +154,15 @@ namespace ButterCheeseEggs.UnitTests
             GameStateAnalyzer analyzer = new GameStateAnalyzer();
             GameState state = new GameState();
 
-            state.Table[0, 0] = TileStates.O;
-            state.Table[1, 0] = TileStates.X;
-            state.Table[2, 0] = TileStates.X;
-            state.Table[0, 1] = TileStates.X;
-            state.Table[1, 1] = TileStates.O;
-            state.Table[2, 1] = TileStates.O;
-            state.Table[0, 2] = TileStates.X;
-            state.Table[1, 2] = TileStates.O;
-            state.Table[2, 2] = TileStates.X;
+            state.Table[0, 0].TileState = TileStates.O;
+            state.Table[1, 0].TileState = TileStates.X;
+            state.Table[2, 0].TileState = TileStates.X;
+            state.Table[0, 1].TileState = TileStates.X;
+            state.Table[1, 1].TileState = TileStates.O;
+            state.Table[2, 1].TileState = TileStates.O;
+            state.Table[0, 2].TileState = TileStates.X;
+            state.Table[1, 2].TileState = TileStates.O;
+            state.Table[2, 2].TileState = TileStates.X;
 
 
             Players result = analyzer.DetermineWinner(state);
@@ -177,15 +177,15 @@ namespace ButterCheeseEggs.UnitTests
             GameStateAnalyzer analyzer = new GameStateAnalyzer();
             GameState state = new GameState();
 
-            state.Table[0, 0] = TileStates.O;
-            state.Table[1, 0] = TileStates.X;
-            state.Table[2, 0] = TileStates.X;
-            state.Table[0, 1] = TileStates.X;
-            state.Table[1, 1] = TileStates.O;
-            state.Table[2, 1] = TileStates.O;
-            state.Table[0, 2] = TileStates.X;
-            state.Table[1, 2] = TileStates.O;
-            state.Table[2, 2] = TileStates.X;
+            state.Table[0, 0].TileState = TileStates.O;
+            state.Table[1, 0].TileState = TileStates.X;
+            state.Table[2, 0].TileState = TileStates.X;
+            state.Table[0, 1].TileState = TileStates.X;
+            state.Table[1, 1].TileState = TileStates.O;
+            state.Table[2, 1].TileState = TileStates.O;
+            state.Table[0, 2].TileState = TileStates.X;
+            state.Table[1, 2].TileState = TileStates.O;
+            state.Table[2, 2].TileState = TileStates.X;
 
             Players result = analyzer.DetermineWinner(state);
 
@@ -199,15 +199,15 @@ namespace ButterCheeseEggs.UnitTests
             GameStateAnalyzer analyzer = new GameStateAnalyzer();
             GameState state = new GameState();
 
-            state.Table[0, 0] = TileStates.O;
-            state.Table[0, 1] = TileStates.X;
-            state.Table[0, 2] = TileStates.X;
-            state.Table[1, 0] = TileStates.X;
-            state.Table[1, 1] = TileStates.O;
-            state.Table[1, 2] = TileStates.O;
-            state.Table[2, 0] = TileStates.X;
-            state.Table[2, 1] = TileStates.O;
-            state.Table[2, 2] = TileStates.X;
+            state.Table[0, 0].TileState = TileStates.O;
+            state.Table[0, 1].TileState = TileStates.X;
+            state.Table[0, 2].TileState = TileStates.X;
+            state.Table[1, 0].TileState = TileStates.X;
+            state.Table[1, 1].TileState = TileStates.O;
+            state.Table[1, 2].TileState = TileStates.O;
+            state.Table[2, 0].TileState = TileStates.X;
+            state.Table[2, 1].TileState = TileStates.O;
+            state.Table[2, 2].TileState = TileStates.X;
 
             Players result = analyzer.DetermineWinner(state);
 
@@ -221,15 +221,15 @@ namespace ButterCheeseEggs.UnitTests
             GameStateAnalyzer analyzer = new GameStateAnalyzer();
             GameState state = new GameState();
 
-            state.Table[0, 0] = TileStates.O;
-            state.Table[1, 0] = TileStates.X;
-            state.Table[2, 0] = TileStates.X;
-            state.Table[0, 1] = TileStates.X;
-            state.Table[1, 1] = TileStates.O;
-            state.Table[2, 1] = TileStates.O;
-            state.Table[0, 2] = TileStates.X;
-            state.Table[1, 2] = TileStates.O;
-            state.Table[2, 2] = TileStates.O;
+            state.Table[0, 0].TileState = TileStates.O;
+            state.Table[1, 0].TileState = TileStates.X;
+            state.Table[2, 0].TileState = TileStates.X;
+            state.Table[0, 1].TileState = TileStates.X;
+            state.Table[1, 1].TileState = TileStates.O;
+            state.Table[2, 1].TileState = TileStates.O;
+            state.Table[0, 2].TileState = TileStates.X;
+            state.Table[1, 2].TileState = TileStates.O;
+            state.Table[2, 2].TileState = TileStates.O;
 
             Players result = analyzer.DetermineWinner(state);
 
@@ -243,15 +243,15 @@ namespace ButterCheeseEggs.UnitTests
             GameStateAnalyzer analyzer = new GameStateAnalyzer();
             GameState state = new GameState();
 
-            state.Table[0, 0] = TileStates.X;
-            state.Table[1, 0] = TileStates.X;
-            state.Table[2, 0] = TileStates.O;
-            state.Table[0, 1] = TileStates.X;
-            state.Table[1, 1] = TileStates.O;
-            state.Table[2, 1] = TileStates.X;
-            state.Table[0, 2] = TileStates.O;
-            state.Table[1, 2] = TileStates.O;
-            state.Table[2, 2] = TileStates.O;
+            state.Table[0, 0].TileState = TileStates.X;
+            state.Table[1, 0].TileState = TileStates.X;
+            state.Table[2, 0].TileState = TileStates.O;
+            state.Table[0, 1].TileState = TileStates.X;
+            state.Table[1, 1].TileState = TileStates.O;
+            state.Table[2, 1].TileState = TileStates.X;
+            state.Table[0, 2].TileState = TileStates.O;
+            state.Table[1, 2].TileState = TileStates.O;
+            state.Table[2, 2].TileState = TileStates.O;
 
             Players result = analyzer.DetermineWinner(state);
 
@@ -265,15 +265,15 @@ namespace ButterCheeseEggs.UnitTests
             GameStateAnalyzer analyzer = new GameStateAnalyzer();
             GameState state = new GameState();
 
-            state.Table[0, 0] = TileStates.X;
-            state.Table[1, 0] = TileStates.X;
-            state.Table[2, 0] = TileStates.O;
-            state.Table[0, 1] = TileStates.X;
-            state.Table[1, 1] = TileStates.X;
-            state.Table[2, 1] = TileStates.O;
-            state.Table[0, 2] = TileStates.O;
-            state.Table[1, 2] = TileStates.O;
-            state.Table[2, 2] = TileStates.X;
+            state.Table[0, 0].TileState = TileStates.X;
+            state.Table[1, 0].TileState = TileStates.X;
+            state.Table[2, 0].TileState = TileStates.O;
+            state.Table[0, 1].TileState = TileStates.X;
+            state.Table[1, 1].TileState = TileStates.X;
+            state.Table[2, 1].TileState = TileStates.O;
+            state.Table[0, 2].TileState = TileStates.O;
+            state.Table[1, 2].TileState = TileStates.O;
+            state.Table[2, 2].TileState = TileStates.X;
 
             Players result = analyzer.DetermineWinner(state);
 
@@ -288,15 +288,15 @@ namespace ButterCheeseEggs.UnitTests
             GameStateAnalyzer analyzer = new GameStateAnalyzer();
             GameState state = new GameState();
 
-            state.Table[0, 0] = TileStates.O;
-            state.Table[1, 0] = TileStates.X;
-            state.Table[2, 0] = TileStates.X;
-            state.Table[0, 1] = TileStates.X;
-            state.Table[1, 1] = TileStates.X;
-            state.Table[2, 1] = TileStates.O;
-            state.Table[0, 2] = TileStates.X;
-            state.Table[1, 2] = TileStates.O;
-            state.Table[2, 2] = TileStates.X;
+            state.Table[0, 0].TileState = TileStates.O;
+            state.Table[1, 0].TileState = TileStates.X;
+            state.Table[2, 0].TileState = TileStates.X;
+            state.Table[0, 1].TileState = TileStates.X;
+            state.Table[1, 1].TileState = TileStates.X;
+            state.Table[2, 1].TileState = TileStates.O;
+            state.Table[0, 2].TileState = TileStates.X;
+            state.Table[1, 2].TileState = TileStates.O;
+            state.Table[2, 2].TileState = TileStates.X;
 
             Players result = analyzer.DetermineWinner(state);
 
@@ -310,15 +310,15 @@ namespace ButterCheeseEggs.UnitTests
             GameStateAnalyzer analyzer = new GameStateAnalyzer();
             GameState state = new GameState();
 
-            state.Table[0, 0] = TileStates.X;
-            state.Table[1, 0] = TileStates.X;
-            state.Table[2, 0] = TileStates.O;
-            state.Table[0, 1] = TileStates.O;
-            state.Table[1, 1] = TileStates.X;
-            state.Table[2, 1] = TileStates.X;
-            state.Table[0, 2] = TileStates.X;
-            state.Table[1, 2] = TileStates.O;
-            state.Table[2, 2] = TileStates.O;
+            state.Table[0, 0].TileState = TileStates.X;
+            state.Table[1, 0].TileState = TileStates.X;
+            state.Table[2, 0].TileState = TileStates.O;
+            state.Table[0, 1].TileState = TileStates.O;
+            state.Table[1, 1].TileState = TileStates.X;
+            state.Table[2, 1].TileState = TileStates.X;
+            state.Table[0, 2].TileState = TileStates.X;
+            state.Table[1, 2].TileState = TileStates.O;
+            state.Table[2, 2].TileState = TileStates.O;
 
             Players result = analyzer.DetermineWinner(state);
 
@@ -332,15 +332,15 @@ namespace ButterCheeseEggs.UnitTests
             GameStateAnalyzer analyzer = new GameStateAnalyzer();
             GameState state = new GameState();
 
-            state.Table[0, 0] = TileStates.X;
-            state.Table[1, 0] = TileStates.X;
-            state.Table[2, 0] = TileStates.O;
-            state.Table[0, 1] = TileStates.O;
-            state.Table[1, 1] = TileStates.X;
-            state.Table[2, 1] = TileStates.X;
-            state.Table[0, 2] = TileStates.X;
-            state.Table[1, 2] = TileStates.O;
-            state.Table[2, 2] = TileStates.O;
+            state.Table[0, 0].TileState = TileStates.X;
+            state.Table[1, 0].TileState = TileStates.X;
+            state.Table[2, 0].TileState = TileStates.O;
+            state.Table[0, 1].TileState = TileStates.O;
+            state.Table[1, 1].TileState = TileStates.X;
+            state.Table[2, 1].TileState = TileStates.X;
+            state.Table[0, 2].TileState = TileStates.X;
+            state.Table[1, 2].TileState = TileStates.O;
+            state.Table[2, 2].TileState = TileStates.O;
 
             Players result = analyzer.DetermineWinner(state);
 
@@ -354,15 +354,15 @@ namespace ButterCheeseEggs.UnitTests
             GameStateAnalyzer analyzer = new GameStateAnalyzer();
             GameState state = new GameState();
 
-            state.Table[0, 0] = TileStates.O;
-            state.Table[1, 0] = TileStates.X;
-            state.Table[2, 0] = TileStates.O;
-            state.Table[0, 1] = TileStates.X;
-            state.Table[1, 1] = TileStates.O;
-            state.Table[2, 1] = TileStates.O;
-            state.Table[0, 2] = TileStates.X;
-            state.Table[1, 2] = TileStates.O;
-            state.Table[2, 2] = TileStates.X;
+            state.Table[0, 0].TileState = TileStates.O;
+            state.Table[1, 0].TileState = TileStates.X;
+            state.Table[2, 0].TileState = TileStates.O;
+            state.Table[0, 1].TileState = TileStates.X;
+            state.Table[1, 1].TileState = TileStates.O;
+            state.Table[2, 1].TileState = TileStates.O;
+            state.Table[0, 2].TileState = TileStates.X;
+            state.Table[1, 2].TileState = TileStates.O;
+            state.Table[2, 2].TileState = TileStates.X;
 
             Players result = analyzer.DetermineWinner(state);
 
@@ -376,15 +376,15 @@ namespace ButterCheeseEggs.UnitTests
             GameStateAnalyzer analyzer = new GameStateAnalyzer();
             GameState state = new GameState();
 
-            state.Table[0, 0] = TileStates.O;
-            state.Table[1, 0] = TileStates.X;
-            state.Table[2, 0] = TileStates.O;
-            state.Table[0, 1] = TileStates.X;
-            state.Table[1, 1] = TileStates.O;
-            state.Table[2, 1] = TileStates.O;
-            state.Table[0, 2] = TileStates.X;
-            state.Table[1, 2] = TileStates.O;
-            state.Table[2, 2] = TileStates.X;
+            state.Table[0, 0].TileState = TileStates.O;
+            state.Table[1, 0].TileState = TileStates.X;
+            state.Table[2, 0].TileState = TileStates.O;
+            state.Table[0, 1].TileState = TileStates.X;
+            state.Table[1, 1].TileState = TileStates.O;
+            state.Table[2, 1].TileState = TileStates.O;
+            state.Table[0, 2].TileState = TileStates.X;
+            state.Table[1, 2].TileState = TileStates.O;
+            state.Table[2, 2].TileState = TileStates.X;
 
             Players result = analyzer.DetermineWinner(state);
 

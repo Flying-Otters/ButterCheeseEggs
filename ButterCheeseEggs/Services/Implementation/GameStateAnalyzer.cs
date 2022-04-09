@@ -30,7 +30,9 @@ namespace ButterCheeseEggs.Services.Implementation
 
         private bool IsWinningRow(GameState state, int rowIndex, TileStates tileState)
         {
-            bool isWinning = (state.Table[0, rowIndex] == tileState) && (state.Table[1, rowIndex] == tileState) && (state.Table[2, rowIndex] == tileState);
+            bool isWinning = (state.Table[0, rowIndex].TileState == tileState) 
+                && (state.Table[1, rowIndex].TileState == tileState) 
+                && (state.Table[2, rowIndex].TileState == tileState);
             return isWinning;
         }
 
@@ -52,9 +54,9 @@ namespace ButterCheeseEggs.Services.Implementation
 
         private bool IsRowInWinningConditionForO(GameState state)
         {
-            bool isFirstRowO = (state.Table[0, 0] == TileStates.O) && (state.Table[1, 0] == TileStates.O) && (state.Table[2, 0] == TileStates.O);
-            bool isSecondRowO = (state.Table[0, 1] == TileStates.O) && (state.Table[1, 1] == TileStates.O) && (state.Table[2, 1] == TileStates.O);
-            bool isThirdRowO = (state.Table[0, 2] == TileStates.O) && (state.Table[1, 2] == TileStates.O) && (state.Table[2, 2] == TileStates.O);
+            bool isFirstRowO = (state.Table[0, 0].TileState == TileStates.O) && (state.Table[1, 0].TileState == TileStates.O) && (state.Table[2, 0].TileState == TileStates.O);
+            bool isSecondRowO = (state.Table[0, 1].TileState == TileStates.O) && (state.Table[1, 1].TileState == TileStates.O) && (state.Table[2, 1].TileState == TileStates.O);
+            bool isThirdRowO = (state.Table[0, 2].TileState == TileStates.O) && (state.Table[1, 2].TileState == TileStates.O) && (state.Table[2, 2].TileState == TileStates.O);
 
             if (isFirstRowO || isSecondRowO || isThirdRowO)
             {
@@ -68,9 +70,9 @@ namespace ButterCheeseEggs.Services.Implementation
         private bool IsColumnInWinningConditionForX(GameState state)
         {
 
-            bool isFirstColumnX = (state.Table[0, 0] == TileStates.X) && (state.Table[0,1] == TileStates.X) && (state.Table[0,2] == TileStates.X);
-            bool isSecondColumnX = (state.Table[1,0] == TileStates.X) && (state.Table[1, 1] == TileStates.X) && (state.Table[1,2] == TileStates.X);
-            bool isThirdColumnX = (state.Table[2,0] == TileStates.X) && (state.Table[2,1] == TileStates.X) && (state.Table[2, 2] == TileStates.X);
+            bool isFirstColumnX = (state.Table[0, 0].TileState == TileStates.X) && (state.Table[0,1].TileState == TileStates.X) && (state.Table[0,2].TileState == TileStates.X);
+            bool isSecondColumnX = (state.Table[1,0].TileState == TileStates.X) && (state.Table[1, 1].TileState == TileStates.X) && (state.Table[1,2].TileState == TileStates.X);
+            bool isThirdColumnX = (state.Table[2,0].TileState == TileStates.X) && (state.Table[2,1].TileState == TileStates.X) && (state.Table[2, 2].TileState == TileStates.X);
 
             if (isFirstColumnX || isSecondColumnX || isThirdColumnX)
             {
@@ -84,9 +86,9 @@ namespace ButterCheeseEggs.Services.Implementation
         private bool IsColumnInWinningConditionForO(GameState state)
         {
 
-            bool isFirstColumnO = (state.Table[0, 0] == TileStates.O) && (state.Table[0, 1] == TileStates.O) && (state.Table[0, 2] == TileStates.O);
-            bool isSecondColumnO = (state.Table[1, 0] == TileStates.O) && (state.Table[1, 1] == TileStates.O) && (state.Table[1, 2] == TileStates.O);
-            bool isThirdColumnO = (state.Table[2, 0] == TileStates.O) && (state.Table[2, 1] == TileStates.O) && (state.Table[2, 2] == TileStates.O);
+            bool isFirstColumnO = (state.Table[0, 0].TileState == TileStates.O) && (state.Table[0, 1].TileState == TileStates.O) && (state.Table[0, 2].TileState == TileStates.O);
+            bool isSecondColumnO = (state.Table[1, 0].TileState == TileStates.O) && (state.Table[1, 1].TileState == TileStates.O) && (state.Table[1, 2].TileState == TileStates.O);
+            bool isThirdColumnO = (state.Table[2, 0].TileState == TileStates.O) && (state.Table[2, 1].TileState == TileStates.O) && (state.Table[2, 2].TileState == TileStates.O);
 
             if (isFirstColumnO || isSecondColumnO || isThirdColumnO)
             {
@@ -99,8 +101,8 @@ namespace ButterCheeseEggs.Services.Implementation
 
         private bool IsDiagonalInWinningConditionForX(GameState state)
         {
-            bool isFirstDiagonalX = (state.Table[0, 0] == TileStates.X) && (state.Table[1, 1] == TileStates.X) && (state.Table[2, 2] == TileStates.X);
-            bool isSecondDiagonalX = (state.Table[2, 0] == TileStates.X) && (state.Table[1, 1] == TileStates.X) && (state.Table[0, 2] == TileStates.X);
+            bool isFirstDiagonalX = (state.Table[0, 0].TileState == TileStates.X) && (state.Table[1, 1].TileState == TileStates.X) && (state.Table[2, 2].TileState == TileStates.X);
+            bool isSecondDiagonalX = (state.Table[2, 0].TileState == TileStates.X) && (state.Table[1, 1].TileState == TileStates.X) && (state.Table[0, 2].TileState == TileStates.X);
 
             if (isFirstDiagonalX || isSecondDiagonalX)
             {
@@ -113,8 +115,8 @@ namespace ButterCheeseEggs.Services.Implementation
 
         private bool IsDiagonalInWinningConditionForO(GameState state)
         {
-            bool isFirstDiagonalO = (state.Table[0, 0] == TileStates.O) && (state.Table[1, 1] == TileStates.O) && (state.Table[2, 2] == TileStates.O);
-            bool isSecondDiagonalO = (state.Table[2, 0] == TileStates.O) && (state.Table[1, 1] == TileStates.O) && (state.Table[0, 2] == TileStates.O);
+            bool isFirstDiagonalO = (state.Table[0, 0].TileState == TileStates.O) && (state.Table[1, 1].TileState == TileStates.O) && (state.Table[2, 2].TileState == TileStates.O);
+            bool isSecondDiagonalO = (state.Table[2, 0].TileState == TileStates.O) && (state.Table[1, 1].TileState == TileStates.O) && (state.Table[0, 2].TileState == TileStates.O);
       
             if (isFirstDiagonalO || isSecondDiagonalO)
             {
@@ -151,9 +153,9 @@ namespace ButterCheeseEggs.Services.Implementation
         {
             int count = 0;
 
-            foreach (TileStates tile in state.Table.LinearData)
+            foreach (Tile tile in state.Table.LinearData)
             {
-                if (tile == TileStates.Empty)
+                if (tile.TileState == TileStates.Empty)
                 {
                     count++;
                 }

@@ -3,13 +3,18 @@
 namespace ButterCheeseEggs.Models
 {
 
-    public class Table<TContent>
+    public class Table<TContent> 
+        where TContent : new()
     {
+
         public int XSize { get; set; }
+
 
         public int YSize { get; set; }
 
+
         public List<TContent> LinearData { get; set; } = new List<TContent>();
+
 
         public TContent this[int x, int y]
         {
@@ -31,6 +36,7 @@ namespace ButterCheeseEggs.Models
 
         }
 
+
         public Table(int xSize, int ySize)
         {
             this.XSize = xSize;
@@ -40,15 +46,10 @@ namespace ButterCheeseEggs.Models
 
             for(int i = 0; i < length; i++)
             {
-                TContent? item = default(TContent);
-
-#pragma warning disable CS8604 // Possible null reference argument.
+                TContent? item = new TContent();
                 LinearData.Add(item);
-#pragma warning restore CS8604 // Possible null reference argument.
-
             }
         }
-
 
 
         private int GetIndex(int x, int y)
@@ -57,6 +58,7 @@ namespace ButterCheeseEggs.Models
             int linearIndex = (y * XSize) + x;
             return linearIndex;
         }
+
 
         private void DoBoundaryCheck(int x, int y)
         {

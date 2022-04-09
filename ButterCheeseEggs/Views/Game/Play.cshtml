@@ -113,7 +113,7 @@
 @{
     string SelectImageForTile(int x, int y)
     {
-        TileStates state = Model.Table[x, y];
+        TileStates state = Model.Table[x, y].TileState;
 
         switch (state)
         {
@@ -131,7 +131,7 @@
 
     string SelectImageWinningTiles(int x, int y)
     {
-        TileStates state = Model.Table[x, y];
+        TileStates state = Model.Table[x, y].TileState;
 
         switch (state)
         {
@@ -190,7 +190,7 @@
 
     bool IsEmptyTile(int x, int y)
     {
-        TileStates state = Model.Table[x, y];
+        TileStates state = Model.Table[x, y].TileState;
 
         if (state == TileStates.Empty)
         {

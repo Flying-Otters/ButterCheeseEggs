@@ -70,7 +70,7 @@ namespace ButterCheeseEggs.UnitTests
             TileStates tile = TileStates.X;
             for (int i = 0; i < state.Table.LinearData.Count; i++)
             {
-                state.Table.LinearData[i] = tile;
+                state.Table.LinearData[i].TileState = tile;
                 tile = tile == TileStates.O ? TileStates.X : TileStates.O;
             }
 
@@ -91,8 +91,8 @@ namespace ButterCheeseEggs.UnitTests
             TileStates tile = TileStates.Empty;
             for (int i = 0; i < state.Table.LinearData.Count; i++)
             {
-                state.Table.LinearData[i] = tile;
-                tile = tile == TileStates.O ? TileStates.X : TileStates.O;
+                state.Table.LinearData[i].TileState = tile;
+                tile = (tile == TileStates.O) ? TileStates.X : TileStates.O;
             }
 
             bool result = analyzer.IsGameFinished(state);

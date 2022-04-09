@@ -5,7 +5,7 @@ namespace ButterCheeseEggs.Models
     public class GameState
     {
 
-        public Table<TileStates> Table { get; set; } = new Table<TileStates>(3,3);
+        public Table<Tile> Table { get; set; } = new Table<Tile>(3,3);
 
         public Players NextStepBy { get; set; } = Players.X;
 
