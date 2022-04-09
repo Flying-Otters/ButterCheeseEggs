@@ -4,7 +4,6 @@ namespace ButterCheeseEggs.Services.Implementation
 {
     public class GameStateAnalyzer
     {
-
         public Players DetermineWinner(GameState state)
         {
             Players winner = Players.None;
@@ -29,11 +28,18 @@ namespace ButterCheeseEggs.Services.Implementation
         }
 
 
+        private bool IsWinningRow(GameState state, int rowIndex, TileStates tileState)
+        {
+            bool isWinning = (state.Table[0, rowIndex] == tileState) && (state.Table[1, rowIndex] == tileState) && (state.Table[2, rowIndex] == tileState);
+            return isWinning;
+        }
+
+
         private bool IsRowInWinningConditionForX(GameState state)
         {
-            bool isFirstRowX = (state.Table[0, 0] == TileStates.X) && (state.Table[1,0] == TileStates.X) && (state.Table[2,0] == TileStates.X);
-            bool isSecondRowX = (state.Table[0,1] == TileStates.X) && (state.Table[1,1] == TileStates.X) && (state.Table[2,1] == TileStates.X);
-            bool isThirdRowX = (state.Table[0,2] == TileStates.X) && (state.Table[1,2] == TileStates.X) && (state.Table[2,2] == TileStates.X);
+            bool isFirstRowX = IsWinningRow(state, 0, TileStates.X);
+            bool isSecondRowX = IsWinningRow(state, 1, TileStates.X);
+            bool isThirdRowX = IsWinningRow(state, 2, TileStates.X);
 
             if (isFirstRowX || isSecondRowX || isThirdRowX)
             {

@@ -78,9 +78,18 @@
                                 }
                                 else
                                 {
-                                    <td class="nohover">
-                                        <img src="@SelectImageForTile(x, y)" width="100" height="100">
-                                    </td>
+                                    @if (true)//TODO
+                                    {
+                                        <td class="nohover">
+                                            <img src="@SelectImageWinningTiles(x, y)" width="100" height="100">
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td class="nohover">
+                                            <img src="@SelectImageForTile(x, y)" width="100" height="100">
+                                        </td>
+                                    }
                                 }
                             }
                         </tr>
@@ -114,6 +123,24 @@
                 return "/img/tile_o.svg";
             case TileStates.X:
                 return "/img/tile_x.svg";
+            default:
+                throw new NotSupportedException("Tile state not supported: " + state);
+        }
+    }
+
+
+    string SelectImageWinningTiles(int x, int y)
+    {
+        TileStates state = Model.Table[x, y];
+
+        switch (state)
+        {
+            case TileStates.Empty:
+                return "/img/tile_empty.svg";
+            case TileStates.O:
+                return "/img/WinnigTiles/tile_o.svg";
+            case TileStates.X:
+                return "/img/WinnigTiles/tile_x.svg";
             default:
                 throw new NotSupportedException("Tile state not supported: " + state);
         }
