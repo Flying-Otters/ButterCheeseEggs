@@ -11,7 +11,6 @@ namespace ButterCheeseEggs.Services.Implementation
 
         public GameState MakeNextMove(GameState state, int x, int y)
         {
-            
             state.Table[x, y].TileState = GetTileForPlayer(state.NextStepBy);
 
             state.Winner = analyzer.DetermineWinner(state);

@@ -4,6 +4,5 @@
     {
         public TileStates TileState { get; set; }
         public bool IsTileAWinner { get; set; }
-
     }
 }
